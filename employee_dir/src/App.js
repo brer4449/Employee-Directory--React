@@ -16,7 +16,21 @@ class App extends React.Component {
 
   getUser = () => {
     API.getRandomUser()
-      .then(res => this.setState({ employees: res.data[0].name }))
+      .then(res => {
+        console.log(res.data.results[0]);
+        this.setState({
+          employees: {
+            img: res.data.results[0].picture.thumbnail,
+            name:
+              res.data.results[0].name.first +
+              " " +
+              res.data.results[0].name.last,
+            email: res.data.results[0].email,
+            phone: res.data.results[0].phone,
+            dob: res.data.results[0].dob.date
+          }
+        });
+      })
       .catch(err => console.log(err));
   };
 
@@ -26,7 +40,13 @@ class App extends React.Component {
         <p>hello world</p>
         <Header />
         <SearchInput />
-        <EmployeeRow name={this.state.employees} />
+        <EmployeeRow
+          img={this.state.employees.img}
+          name={this.state.employees.name}
+          email={this.state.employees.email}
+          phone={this.state.employees.phone}
+          dob={this.state.employees.dob}
+        />
       </>
     );
   }
