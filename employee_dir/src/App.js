@@ -23,7 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>Hello world</h1>
+        <p>hello world</p>
         <Header />
         <SearchInput />
         <EmployeeRow name={this.state.employees} />
