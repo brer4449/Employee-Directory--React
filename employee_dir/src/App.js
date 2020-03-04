@@ -16,7 +16,7 @@ class App extends React.Component {
 
   getUser = () => {
     API.getRandomUser()
-      .then(res => this.setState({ employees: res.data.name }))
+      .then(res => this.setState({ employees: res.data[0].name }))
       .catch(err => console.log(err));
   };
 
@@ -26,7 +26,7 @@ class App extends React.Component {
         <h1>Hello world</h1>
         <Header />
         <SearchInput />
-        <EmployeeRow name={this.state.name} />
+        <EmployeeRow name={this.state.employees} />
       </>
     );
   }

@@ -3,7 +3,8 @@ import React from "react";
 function Header() {
   return (
     <div>
-      <header> Hello World</header>
+      <header>Employee Directory</header>
+      <p>Use the search box to narrow your results</p>
     </div>
   );
 }

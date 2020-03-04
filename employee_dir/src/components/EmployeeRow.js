@@ -1,9 +1,9 @@
 import React from "react";
 
-function EmployeeRow() {
+function EmployeeRow(props) {
   return (
     <div>
-      <p>Employee 1</p>
+      <p>Employee 1 {props.name}</p>
     </div>
   );
 }
