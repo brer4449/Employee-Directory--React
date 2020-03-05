@@ -11,20 +11,15 @@
   border-bottom: 5px solid #d82727;
 }
 
-/* th, td {
-  padding: 15px;
-  text-align: left;
-} */
+.input {
+  display: block;
+  margin: 0 auto;
+}
+
+.table {
+  margin: 5px;
+}
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

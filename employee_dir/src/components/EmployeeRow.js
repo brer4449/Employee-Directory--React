@@ -44,8 +44,10 @@ class EmployeeRow extends React.Component {
   render() {
     return (
       <div>
-        <input placeholder="Search Here"></input>
-        <table>
+        <br />
+        <input className="input" placeholder="Search Here"></input>
+        <br />
+        <table className="table">
           <thead>
             <tr>
               {columns.map(column => (
