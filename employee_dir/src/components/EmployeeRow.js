@@ -32,7 +32,7 @@ class EmployeeRow extends React.Component {
           newEmp.name = results.name.first + " " + results.name.last;
           newEmp.email = results.email;
           newEmp.phone = results.phone;
-          newEmp.dob = results.dob.date;
+          newEmp.dob = results.dob.date.substring(0, 10);
           // console.log(newEmp);
           allEmps.push(newEmp);
           this.setState({ employees: allEmps });
