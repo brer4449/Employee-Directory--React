@@ -23,29 +23,26 @@ class EmployeeRow extends React.Component {
     API.getRandomUser()
       .then(res => {
         // console.log(res.data.results);
-        let returnedData = res.data.results;
-        let allEmps = [];
-        returnedData.map(results => {
-          let newEmp = {};
-          newEmp.id = results.id.value;
-          newEmp.img = results.picture.thumbnail;
-          newEmp.name = results.name.first + " " + results.name.last;
-          newEmp.email = results.email;
-          newEmp.phone = results.phone;
-          newEmp.dob = results.dob.date.substring(0, 10);
-          // console.log(newEmp);
-          allEmps.push(newEmp);
-          this.setState({ employees: allEmps });
-        });
+        this.setState({ employees: res.data.results });
       })
       .catch(err => console.log(err));
+  };
+
+  updateSearch = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
 
   render() {
     return (
       <div>
         <br />
-        <input className="input" placeholder="Search Here"></input>
+        <input
+          className="input"
+          placeholder="Search Here"
+          type="text"
+          onChange={this.updateSearch.bind(this)}
+        ></input>
         <br />
         <table className="table">
           <thead>
@@ -60,14 +57,14 @@ class EmployeeRow extends React.Component {
               return (
                 //included key equal to each person's SSN so I wouldn't get the "each child should have unique 'key' prop" error
                 //SSN is a unique identifier
-                <tr key={emp.id}>
+                <tr key={emp.id.value}>
                   <td>
-                    <img src={emp.img}></img>
+                    <img src={emp.picture.thumbnail}></img>
                   </td>
-                  <td>{emp.name}</td>
+                  <td>{emp.name.first + " " + emp.name.last}</td>
                   <td>{emp.email}</td>
                   <td>{emp.phone}</td>
-                  <td>{emp.dob}</td>
+                  <td>{emp.dob.date.substring(0, 10)}</td>
                 </tr>
               );
             })}
