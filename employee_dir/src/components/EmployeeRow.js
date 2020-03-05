@@ -44,6 +44,7 @@ class EmployeeRow extends React.Component {
   render() {
     return (
       <div>
+        <input placeholder="Search Here"></input>
         <table>
           <thead>
             <tr>
