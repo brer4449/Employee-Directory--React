@@ -22,17 +22,18 @@ class EmployeeRow extends React.Component {
   getUser = () => {
     API.getRandomUser()
       .then(res => {
-        console.log(res.data.results);
+        // console.log(res.data.results);
         let returnedData = res.data.results;
         let allEmps = [];
         returnedData.map(results => {
           let newEmp = {};
+          newEmp.id = results.id.value;
           newEmp.img = results.picture.thumbnail;
           newEmp.name = results.name.first + " " + results.name.last;
           newEmp.email = results.email;
           newEmp.phone = results.phone;
           newEmp.dob = results.dob.date;
-          console.log(newEmp);
+          // console.log(newEmp);
           allEmps.push(newEmp);
           this.setState({ employees: allEmps });
         });
@@ -54,7 +55,9 @@ class EmployeeRow extends React.Component {
           <tbody>
             {this.state.employees.map(emp => {
               return (
-                <tr>
+                //included key equal to each person's SSN so I wouldn't get the "each child should have unique 'key' prop" error
+                //SSN is a unique identifier
+                <tr key={emp.id}>
                   <td>
                     <img src={emp.img}></img>
                   </td>
