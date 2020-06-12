@@ -19,10 +19,7 @@ The user must npm install all dependencies first and then to start the app, type
 
 ## Functionality
 
-Landing page
-![Landing page](https://github.com/brer4449/Employee-Directory--React/blob/master/assets/employee1.png)
-Demonstration of search
-![Demonstration of wrong answer](https://github.com/brer4449/Employee-Directory--React/blob/master/assets/employee2.png)
+![Demonstration of working app](./public/assets/employee.gif)
 
 ## Technologies
 
